@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Khula:wght@300;400;700&display=swap");
+.container {
+  max-width: 1400px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+}
+.div__right {
+  padding-left: 100px;
+  font-family: "Khula", sans-serif;
+  font-weight: 400px;
+  letter-spacing: 1.5px;
+}
+span {
+  display: block;
+  padding: 0;
+}
+h1 {
+  line-height: 59px;
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  font-family: "Khula", sans-serif;
+}
