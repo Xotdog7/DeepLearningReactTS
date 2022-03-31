@@ -1,26 +1,20 @@
-import React from "react";
-import User from "./components/User";
+import { type } from "os";
+import React, { FC } from "react";
+import "./app.scss";
+import Header from "./components/Header/Header";
+import MyProfile from "./components/Myprofile/MyProfile";
+import Nav from "./components/Nav/Nav";
+import { MessageUser } from "./types/types";
 
 
-function App() {
-  const users = {
-    name: "Rustem",
-    lastname: "Seilov",
-    dateOrBirth: "08.12.2000",
-    email: "Rustem710v@gmail.com",
-    gender: "male",
-  };
+const App = (posts: {}) => {
   return (
-    <div className="App"> 
-      <User
-        name={users.name}
-        lastname={users.lastname}
-        dateOrBirth={users.dateOrBirth}
-        email={users.email}
-        gender={users.gender}
-      />
+    <div className="app-wrapper">
+      <Header />
+      <Nav />
+      <MyProfile />
     </div>
   );
-}
+};
 
 export default App;
