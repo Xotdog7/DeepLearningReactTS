@@ -1,18 +1,18 @@
 import { type } from "@testing-library/user-event/dist/type";
 import React, { FC } from "react";
-import { IPosts } from "../../../types/types";
-import Post from "./Post/Post";
+import { IPosts } from "../../types/types";
+import Mypost from "./MyPost/MyPost";
 import s from "./profile.module.css";
 type Props = {
   posts: IPosts[];
   addPost: (text: string) => void;
-  updatePost: (text: string) => void; // Добавляю функцию из родителя
+  updatePost: (text: string) => void; 
   newPost: string
 };
 
 const Profile: FC<Props> = ({ posts, addPost, updatePost, newPost }) => {
   const postElements = posts.map((post) => {
-    return <Post post={post} />;
+    return <Mypost post={post} />;
   });
 
   const text = React.createRef<HTMLTextAreaElement>();

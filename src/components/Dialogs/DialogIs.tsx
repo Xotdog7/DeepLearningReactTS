@@ -1,10 +1,10 @@
 import { type } from "@testing-library/user-event/dist/type";
 import React, { FC } from "react";
-import { NavLink } from "react-router-dom";
-import { MessageText, MessageUser } from "../../../types/types";
-import s from "./message.module.css";
-import ItemMessage from "./UserMessage/ItemMessage";
-import UserMessage from "./UserMessage/UserMessage";
+import { MessageText, MessageUser } from "../../types/types";
+import ItemMessage from "./DialogsItem/ItemMessage";
+import UserMessage from "./DialogsItem/UserMessage";
+
+import s from "./Dialogs.module.css";
 
 type Props = {
   messageUser: MessageUser[];
@@ -13,7 +13,7 @@ type Props = {
 
 };
 
-const Message: FC<Props> = ({ messageUser, messageText }) => {
+const Dialogs: FC<Props> = ({ messageUser, messageText }) => {
   const linkUser = messageUser.map((message) => (
     <UserMessage userMessage={message} />
   ));
@@ -37,4 +37,4 @@ const Message: FC<Props> = ({ messageUser, messageText }) => {
   );
 };
 
-export default Message;
+export default Dialogs;

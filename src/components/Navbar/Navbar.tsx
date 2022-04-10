@@ -1,7 +1,7 @@
 import React from "react";
-import s from "./Nav.module.css";
+import s from "./Navbar.module.css";
 import { Link } from "react-router-dom";
-const Nav = () => {
+const Navbar = () => {
   return (
     <nav className={s.nav}>
       <li>
@@ -23,4 +23,4 @@ const Nav = () => {
   );
 };
 
-export default Nav;
+export default Navbar;

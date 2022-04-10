@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { IPosts } from "../../../../types/types";
+import { IPosts } from "../../../types/types";
 
 type Props = {
 
@@ -8,7 +8,7 @@ type Props = {
 }
 
 
-const Post:FC<Props> = ({post}) => {
+const Mypost:FC<Props> = ({post}) => {
 
 
  
@@ -20,4 +20,4 @@ const Post:FC<Props> = ({post}) => {
   );
 };
 
-export default Post;
+export default Mypost;

@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { MessageText } from "../../../../types/types";
+import { MessageText } from "../../../types/types";
 
 type Props = {
   message: MessageText;
