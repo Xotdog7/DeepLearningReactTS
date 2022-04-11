@@ -19,7 +19,6 @@ const App: FC<props> = ({ state, newPost, addPost, updatePost }) => {
   return (
     <div className="app-wrapper">
       <Navbar />
-      
       <div className="content">
         <Routes>
           <Route

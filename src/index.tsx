@@ -2,13 +2,16 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
-import { addPost, newPost, state, subcribe, updatePost } from "./redux/state";
+import { store } from "./redux/state";
+
+
+
 
 let render = () => {
   ReactDOM.render(
     <React.StrictMode>
       <BrowserRouter>
-      <App state={state} newPost ={newPost} addPost={addPost} updatePost={updatePost}  />
+      <App state={store.getState()} newPost ={store.newPost} addPost={store.addPost.bind(store)} updatePost={store.updatePost.bind(store)}  />
       </BrowserRouter>
     </React.StrictMode>,
     document.getElementById("root")
@@ -16,4 +19,4 @@ let render = () => {
 };
 render();
 
-subcribe(render);
+store.subcribe(render);
