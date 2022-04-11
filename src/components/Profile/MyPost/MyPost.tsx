@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { IPosts } from "../../../types/types";
+import { IPosts } from "../../../redux/state";
 
 type Props = {
 

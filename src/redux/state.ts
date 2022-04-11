@@ -1,19 +1,35 @@
-import { IPosts, MessageText, MessageUser } from "../types/types";
-
-export interface IStore {
-  _state: State;
-  getState: () => State;
-  _changeData: Function;
-  newPost: string;
-  addPost: (text: string) => void;
-  updatePost: (text: string) => void;
-  subcribe: (callback: Function) => void;
-}
-
 export interface State {
   messageUser: MessageUser[];
   messageText: MessageText[];
   posts: IPosts[];
+}
+
+export interface MessageUser {
+  id: number;
+  name: string;
+}
+export interface MessageText {
+  id: number;
+  message: string;
+}
+
+export interface IPosts {
+  id: number;
+  message: string;
+  likeCount: number;
+}
+
+export interface IAction {
+  type: string;
+  newPost: string;
+}
+
+export interface IStore {
+  _state: State;
+  _changeData: Function;
+  getState: () => State;
+  subcribe: (callback: Function) => void;
+  dispatch: (action: IAction) => void;
 }
 
 export const store: IStore = {
@@ -65,27 +81,28 @@ export const store: IStore = {
       },
     ],
   },
+
   _changeData() {},
   getState() {
     return this._state;
   },
-  newPost: "Rustem",
 
-  addPost(text) {
 
-    debugger;
-    const newPost: IPosts = {
-      id: this._state.posts.length + 1,
-      message: text,
-      likeCount: 0,
-    };
-    this._state.posts.push(newPost);
-    this._changeData();
+  dispatch(action) {
+    if (action.type === "ADD_POST") {
+      const newPost: IPosts = {
+        id: this._state.posts.length + 1,
+        message: action.newPost,
+        likeCount: 0,
+      };
+      this._state.posts.push(newPost);
+      this._changeData();
+    } 
+    else if (action.type === "UPDATE_POST") {
+      this._changeData();
+    }
   },
-  updatePost(text) {
-    this.newPost = text;
-    this._changeData();
-  },
+
   subcribe(callback) {
     this._changeData = callback;
   },

@@ -1,16 +1,15 @@
 import { type } from "@testing-library/user-event/dist/type";
 import React, { FC } from "react";
-import { IPosts } from "../../types/types";
+import { IAction, IPosts } from "../../redux/state";
 import Mypost from "./MyPost/MyPost";
 import s from "./profile.module.css";
 type Props = {
   posts: IPosts[];
-  addPost: (text: string) => void;
-  updatePost: (text: string) => void; 
-  newPost: string
+
+  dispatch: (action: IAction) => void;
 };
 
-const Profile: FC<Props> = ({ posts, addPost, updatePost, newPost }) => {
+const Profile: FC<Props> = ({ posts, dispatch }) => {
   const postElements = posts.map((post) => {
     return <Mypost post={post} />;
   });
@@ -19,11 +18,11 @@ const Profile: FC<Props> = ({ posts, addPost, updatePost, newPost }) => {
 
   function showText() {
     const textAlert = "" + text.current?.value;
-    addPost(textAlert);
+    dispatch({ type: "ADD_POST", newPost: textAlert });
   }
   function updatePosts() {
     const textAlert = "" + text.current?.value;
-    updatePost(textAlert);
+    dispatch({ type: "UPDATE_POST", newPost: textAlert });
   }
 
   return (
@@ -34,7 +33,10 @@ const Profile: FC<Props> = ({ posts, addPost, updatePost, newPost }) => {
       />
       <div>
         <div>
-          <textarea onChange={updatePosts} value={newPost} ref={text}></textarea>
+          <textarea
+            onChange={updatePosts}
+            ref={text}
+          ></textarea>
         </div>
         <button onClick={showText}>кнопка</button>
       </div>

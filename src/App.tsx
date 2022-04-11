@@ -6,16 +6,14 @@ import Music from "./components/Music/Music";
 import Navbar from "./components/Navbar/Navbar";
 
 import Profile from "./components/Profile/Profile";
-import { State } from "./redux/state";
+import { IAction, State } from "./redux/state";
 
 type props = {
   state: State;
-  addPost: (text: string) => void;
-  updatePost: (text: string) => void;
-  newPost: string;
+  dispatch: (action: IAction) => void;
 };
 
-const App: FC<props> = ({ state, newPost, addPost, updatePost }) => {
+const App: FC<props> = ({ state, dispatch }) => {
   return (
     <div className="app-wrapper">
       <Navbar />
@@ -26,9 +24,7 @@ const App: FC<props> = ({ state, newPost, addPost, updatePost }) => {
             element={
               <Profile
                 posts={state.posts}
-                addPost={addPost}
-                updatePost={updatePost}
-                newPost={newPost}
+                dispatch={dispatch}
               />
             }
           />

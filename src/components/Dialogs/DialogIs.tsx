@@ -1,10 +1,10 @@
 import { type } from "@testing-library/user-event/dist/type";
 import React, { FC } from "react";
-import { MessageText, MessageUser } from "../../types/types";
 import ItemMessage from "./DialogsItem/ItemMessage";
 import UserMessage from "./DialogsItem/UserMessage";
 
 import s from "./Dialogs.module.css";
+import { MessageText, MessageUser } from "../../redux/state";
 
 type Props = {
   messageUser: MessageUser[];
